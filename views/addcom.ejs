@@ -1,0 +1,55 @@
+
+<h2>添加餐馆</h2>
+<p>增加订单</p>
+
+<div class="add-com">
+<form action="/add-com" enctype="multipart/form-data" method="post">
+    <div>
+        <label for="name">餐馆名称</label>
+        <input type="text" name="name" id="name">
+    </div>
+    <div>
+        <label for="category">分类</label>
+        <select name="category" id="category">
+            <option value="huoguo">huoguo</option>
+            <option value="haixian">haixian</option>
+            <option value="kaorou">kaorou</option>
+            <option value="zizhu">zizhu</option>
+            <option value="kuaican">kuaican</option>
+            <option value="xican">xican</option>
+            <option value="tianping">tianping</option>
+            <option value="yinpin">yinpin</option>
+        </select>
+    </div>
+    <!-- <div>
+        <%if(result1 !=''){
+            <div><%=result1%></div>
+        }
+    </div> -->
+    <div>
+        <label for="photo">餐馆图片</label>
+        <input type="file" name="photo" id="photo">
+    </div>
+    <div>
+        <label for="er">餐馆简介</label>
+        <textarea name="intro" id="intro" cols="40" rows="10"></textarea>
+    </div>
+    <div>
+        <label for="averagecost">人均消费</label>
+        <input type="number" name="averagecost" id="averagecost">
+    </div>
+    <div>
+        <label for="promotion">促销信息</label>
+        <input type="text" name="promotion" id="promotion">
+    </div>
+    <div>
+        <label for="featured">餐馆特色</label>
+        <input type="text" name="featured" id="featured">
+    </div>
+    <div>
+        <label for="address">餐馆地址</label>
+        <input type="text" name="address" id="address">
+    </div>
+    <input type="submit" value="提交">
+</form>
+</div>

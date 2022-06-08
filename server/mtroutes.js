@@ -1,0 +1,12 @@
+const express=require('express')
+const router=express.Router()
+const mtcontroller=require('./cont/mtcontroller')
+router.get('/',mtcontroller.homepage)
+router.post('/load-more',mtcontroller.xiaoshan)
+router.get('/addcom',mtcontroller.xiaoming)
+router.post('/addcom',mtcontroller.xiaomingpost)
+router.get('/category:id',mtcontroller.hai)
+router.post('/category:id',mtcontroller.hai)
+router.post('/search',mtcontroller.haic)
+//router.get('/add-com')
+module.exports=router

@@ -1,0 +1,55 @@
+const {default:mongoose}=require("mongoose")
+//利用Schema
+const Restaurantschema=mongoose.Schema({
+    name:{
+        type:String,
+        required:true,
+        default:'123'
+    },
+    img:{
+        type:String,
+        required:true,
+        default:''
+    },
+    stars:{
+        type:Number,
+        required:false,
+        default:'4.0'
+    },
+    averageCost:{
+        type:Number,
+        required:true,
+        default:'100'
+    }, 
+    distance:{
+        type:String,
+        required:false,
+        default:'2.1'
+    },
+    address:{
+        type:String,
+        required:true
+    },
+    featured:{
+        type:String,
+        required:true
+    },
+    promotion:{
+        type:String,
+        required:false
+    },
+    desc:{
+        type:String,
+        required:true
+    },
+    category:{
+        type:String,
+        catearr:['火锅','海鲜','烧烤','甜点','西餐','一','自助','快餐'],
+        required:true
+    }
+})
+//创建索引
+Restaurantschema.index({name:'text'})
+//
+
+module.exports=mongoose.model('Restaurant',Restaurantschema)

@@ -1,0 +1,72 @@
+
+<div>
+    <!-- http://localhost:8080/ -->
+    <h1>hello</h1>
+    <!-- <% console.log(categs) %> -->
+   <% categs.forEach(function(itme,index){ %>
+        <img src="<%= itme.img %>" alt="">
+        <!-- <img src="img/1hg.png" alt=""> -->
+    </div>
+    <h4><%= itme.name %></h4>
+  <% }) %>
+  <div class="op">
+  <div class="">
+      <h2>最受欢饮5家店</h2>
+      <% restaurant.forEach(function(itme,index){ %>
+        <a href="/category/<%= itme.name %>"></a>
+        <img src="<%= itme.img %>" alt="">
+        <h4><%= itme.name %></h4>
+        <% }) %>
+  </div>
+  <div class="">
+    <h2>最近5家店</h2>
+    <% distance.forEach(function(itme,index){ %>
+      <img src="<%= itme.img %>" alt="">
+      <h4><%= itme.name %></h4>
+      <% }) %>
+</div>
+  <div>
+      <h2></h2>
+      <img src="" alt="">
+      <h2></h2>
+  </div>
+</div>
+<script>
+    function getdata(){
+      //ajax
+    const http=new XMLHttpRequest()
+    http.open('POST','/category:id',true)
+    http.onreadystatechange=function(){
+      console.log(this.status)
+      if(this.readyState==4&&this.status===200){
+        const data=JSON.parse(this.responseText)
+        console.log(data)
+        let html=''
+        for(let i=0;i<data.length;i++){
+          html+=`
+          <div class="restaurant">
+            <div><img src="${data[i].img}" alt=""></div>
+            <h4>${data[i].name}</h4>
+            </div>
+          `
+        }
+        document.querySelectorAll('#restaurants').innerHTML+=html
+      }
+    }
+    http.send()
+    }
+    //
+    window.addEventListener('load',function(){
+      getdata()
+    })
+    window.addEventListener('scroll',function(){
+      //
+      const {clientHeight,scollTop,scollHeight}=document.documentElement
+     // console.log(clientHeight,scollTop,scollHeight)
+      if(clientHeight+scollTop>=scollHeight){
+        console.log('444')
+        getdata()
+      }
+    })
+    //
+</script>
